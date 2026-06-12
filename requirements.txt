@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────────
+# SAESL Subtask Lookup Tool — Python Dependencies
+# ─────────────────────────────────────────────────────────────────
+# Install with:  pip install -r requirements.txt
+#
+# Python >= 3.10 required (uses X | Y union types and match syntax)
+# ─────────────────────────────────────────────────────────────────
+
+# ── Web framework (app.py) ───────────────────────────────────────
+flask>=3.0
+
+# ── PDF parsing & image extraction (pdf_parser.py) ───────────────
+PyMuPDF>=1.23          # imported as `fitz`
+
+# ── Word document generation (app.py → build_docx) ───────────────
+python-docx>=1.1
+
+# ── Clipboard (app.py — plain-text fallback) ─────────────────────
+pyperclip>=1.8
+
+# ── Windows-only clipboard / keystroke automation (app.py) ───────
+# Needed only when OUTPUT_MODE = "solumina"
+# Installed automatically on Windows; omit on Linux/macOS.
+pywin32>=306           ; sys_platform == "win32"
+
+# ── Standard library (no install needed) ─────────────────────────
+# sqlite3   — database.py
+# json      — database.py
+# uuid      — database.py, pdf_parser.py
+# re        — pdf_parser.py, app.py, formatter.py
+# pathlib   — all modules
+# dataclasses — pdf_parser.py
+# argparse  — pdf_parser.py, app.py
+# base64    — app.py
+# mimetypes — app.py
+# os        — app.py
+# subprocess — app.py
+# tempfile  — app.py
+# io        — app.py (BytesIO)
